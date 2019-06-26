@@ -4,6 +4,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
@@ -20,6 +21,10 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class AddAccountBook extends JFrame {
+	static ArrayList<Data> data = new ArrayList<Data>();
+	public static void main(String[] args) {
+		AddAccountBook ex = new AddAccountBook();
+	}
 
 	public AddAccountBook() {
 		for (int i = 0; i < MemberJoin.member.size(); i++) {
@@ -151,7 +156,22 @@ public class AddAccountBook extends JFrame {
 		memoText.setBounds(110, 310, 160, 25);
 		panel.add(memoText);
 
+		JButton commit = new JButton("제출"); // 제출 버튼
+		commit.setBounds(10, 80, 100, 25);
+		panel.add(commit);
+		commit.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+
 		String[] fieldName = { "번호", "날짜", "수입/지출", "현금/카드", "카테고리", "금액", "메모" };
+
+//		for (int i = 0; i < fieldName.length; i++) {
+//			
+//		}
+
 		String[][] data = { { "1", "0512", "수입", "현금", "쇼핑", "20000", "옷" },
 				{ "1", "0512", "수입", "현금", "쇼핑", "20000", "옷" }, { "1", "0512", "수입", "현금", "쇼핑", "20000", "옷" },
 				{ "1", "0512", "수입", "현금", "쇼핑", "20000", "옷" }, { "1", "0512", "수입", "현금", "쇼핑", "20000", "옷" },
@@ -162,6 +182,7 @@ public class AddAccountBook extends JFrame {
 				{ "1", "0512", "수입", "현금", "쇼핑", "20000", "옷" }, { "1", "0512", "수입", "현금", "쇼핑", "20000", "옷" },
 				{ "1", "0512", "수입", "현금", "쇼핑", "20000", "옷" }, { "1", "0512", "수입", "현금", "쇼핑", "20000", "옷" } };
 		// for 문 써서, 입력한 텍스트값들, 이차원배열에 저장 시켜야함
+
 		DefaultTableModel mod = new DefaultTableModel(data, fieldName) {
 			public boolean isCellEditable(int rowIndex, int mColIndex) {
 				return false;

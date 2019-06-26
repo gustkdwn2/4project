@@ -70,7 +70,7 @@ public class StartMenu extends JFrame {
 		listButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				// ¿€º∫
 				
 			}
 		});
