@@ -13,7 +13,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class MemberJoin extends JFrame {
-	private MainProcess main;
 	private JTextField nameText;
 	private JTextField userText;
 	private JTextField passwordText;
@@ -27,7 +26,6 @@ public class MemberJoin extends JFrame {
 		setTitle("회원가입");
 		setSize(300, 200);
 		this.setLocation(350, 300);
-		setVisible(true);
 
 		// add
 		add(panel);
@@ -79,7 +77,7 @@ public class MemberJoin extends JFrame {
 				Member mem = new Member(nameText.getText(), userText.getText(), passwordText.getText(),
 						phoneText.getText());
 				member.add(mem);
-	
+
 				if (isJoinCheck()) {
 					dispose();
 				}
@@ -89,24 +87,19 @@ public class MemberJoin extends JFrame {
 
 	}
 
-	
-
 	public boolean isJoinCheck() {
 		// 회원가입 성공이라면 가입완료 띄우고 닫기
 		boolean flag = false;
-		
-		if (!(userText.getText().equals("")) && !(passwordText.getText().equals("")) && !(nameText.getText().equals("")) && !(phoneText.getText().equals(""))) {
-			JOptionPane.showMessageDialog(null, "Success");
+
+		if (!(userText.getText().equals("")) && !(passwordText.getText().equals("")) && !(nameText.getText().equals(""))
+				&& !(phoneText.getText().equals(""))) {
+			JOptionPane.showMessageDialog(null, "회원 가입 완료");
 			flag = true;
 		} else {
-			JOptionPane.showMessageDialog(null, "Faild");
+			JOptionPane.showMessageDialog(null, "공백은 안됩니다.");
 		}
 
 		return flag;
-	}
-
-	public void setMain(MainProcess main) {
-		this.main = main;
 	}
 
 }
